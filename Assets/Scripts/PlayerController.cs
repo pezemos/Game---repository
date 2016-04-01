@@ -113,4 +113,13 @@ public class PlayerController : MonoBehaviour {
         _animator.SetFloat("LastMoveX", lastMove.x);
         _animator.SetFloat("LastMoveY", lastMove.y);
 	}
+
+    // check if player gets in contact with goldcoins
+    void OnCollisionEnter(Collision2D col)
+    {
+        if (col.gameObject.name == "goldCoins(Clone)")
+        {
+            Destroy(col.gameObject);
+        }
+    }
 }
