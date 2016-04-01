@@ -6,8 +6,10 @@ public class EnemyHealthManager : MonoBehaviour
     public int enemyMaxHealth;
     public int enemyCurrentHealth;
     public int experienceToGive;
+    public GameObject enemydrop;
 
     private PlayerStats _thePlayerStats;
+    private Vector3 enemyPosistion;
 
     // Use this for initialization
     void Start()
@@ -19,11 +21,18 @@ public class EnemyHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //when enemy dies drop gold destoy the enemy and give the player exp
         if (enemyCurrentHealth <= 0)
         {
+            enemyPosistion = transform.position; //get position where the enemy died;
+            Instantiate(enemydrop, enemyPosistion, Quaternion.identity);
             Destroy(gameObject);
             _thePlayerStats.AddExperience(experienceToGive);
         }
+
+       
+        
+
     }
 
     public void HurtEnemy(int damageToGive)
