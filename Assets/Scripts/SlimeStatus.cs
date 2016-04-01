@@ -5,7 +5,7 @@ public class SlimeStatus : MonoBehaviour
 {
 
     public float minDistance; // min distance to get aggressive
-    public bool foreverAggressive; // if activated, the slime will not be able to become passive after being aggressive
+    public bool foreverAggressive = false; // if activated, the slime will not be able to become passive after being aggressive
     private float distance; // the current distance between the slime and the player
     private GameObject player; // the player gameobject
     public bool isAggressive; // if the slime is angry
